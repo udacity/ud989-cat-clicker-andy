@@ -1,7 +1,7 @@
 var clicker1 = document.getElementById('clicker1');
 var clicker2 = document.getElementById('clicker2');
 var counter1 = document.getElementById('counter1');
-var counter2 = document.getElementById('counter1');
+var counter2 = document.getElementById('counter2');
 var count1 = counter1.textContent;
 var count2 = counter2.textContent;
 

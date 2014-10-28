@@ -1,15 +1,36 @@
-var clicker1 = document.getElementById('clicker1');
-var clicker2 = document.getElementById('clicker2');
-var counter1 = document.getElementById('counter1');
-var counter2 = document.getElementById('counter2');
-var count1 = counter1.textContent;
-var count2 = counter2.textContent;
 
-clicker1.onclick = function(){
-	count1++;
-	counter1.textContent = count1;
+var cats = $(".cat");
+var buttons = $("button");
+
+function hideAllCats(){
+	for (var i=0; i<cats.length; i++){
+		$(cats[i]).hide();
+	}
 }
-clicker2.onclick = function(){
-	count2++;
-	counter2.textContent = count2;
+
+function bindButtonToCat(idNumber){
+	$("#button"+idNumber).click(function(){
+		hideAllCats();
+		$("#cat"+idNumber).show();
+	})
 }
+
+function bindCounterToCat(idNumber){
+	var cat = "#cat"+idNumber
+	$(cat).click(function(){
+		var count = $(cat+" > .counter").text();
+		count = parseInt(count) + 1;
+		$(cat+" > .counter").text(count);
+	})
+}
+
+for (var i=1; i<=buttons.length; i++){
+	bindButtonToCat(i);
+}
+
+for (var i=1; i<=cats.length; i++){
+	bindCounterToCat(i);
+}
+
+hideAllCats();
+$("#cat1").show();
